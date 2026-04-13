@@ -21,7 +21,6 @@ export function UserForm({
         }
     }, [open])
 
-    // 👉 查询详情
     const fetchDetail = async (id: number) => {
         try {
             const res: any = await getTFormReact(id)

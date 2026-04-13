@@ -7,8 +7,6 @@ import {
     message,
     Form,
     Input,
-    InputNumber,
-    DatePicker
 } from 'antd'
 import dayjs from 'dayjs'
 import { UserForm } from './form'
@@ -20,7 +18,6 @@ import {
     deleteTFormReact
 } from '@/api/user/user.ts'
 
-const { RangePicker } = DatePicker
 
 export default function UserPage() {
     const [list, setList] = useState<any[]>([])
@@ -39,7 +36,6 @@ export default function UserPage() {
 
     const [searchForm] = Form.useForm()
 
-    // 🔍 データ取得（検索 + ソート対応）
     const fetchData = async (extraParams: any = {}) => {
         setLoading(true)
 
@@ -160,7 +156,6 @@ export default function UserPage() {
     return (
         <div style={{ padding: 24 }}>
 
-            {/* 🔍 検索フォーム */}
             <Form layout="inline" form={searchForm}>
                 <Form.Item name="name" label="名前">
                     <Input placeholder="名前" />
@@ -177,7 +172,6 @@ export default function UserPage() {
                 </Form.Item>
             </Form>
 
-            {/* 操作按钮 */}
             <Space style={{ margin: '16px 0' }}>
                 <Button
                     type="primary"
@@ -198,7 +192,6 @@ export default function UserPage() {
                 </Button>
             </Space>
 
-            {/* 表格 */}
             <Table
                 rowKey="id"
                 columns={columns}
@@ -229,7 +222,6 @@ export default function UserPage() {
                 }}
             />
 
-            {/* 表单 */}
             <UserForm
                 open={open}
                 initialValues={current}
